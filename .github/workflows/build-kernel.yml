@@ -38,7 +38,7 @@ env:
   SUBARCH: arm64
 
   # Main source selection
-  KERNEL_REPO: [github.com](https://github.com/LineageOS/android_kernel_xiaomi_surya.git)
+  KERNEL_REPO: "https://github.com/LineageOS/android_kernel_xiaomi_surya.git"
   KERNEL_BRANCH: lineage-22.2
 
   # IMPORTANT:
@@ -49,29 +49,29 @@ env:
   KERNEL_COMMIT_414186: "REPLACE_WITH_AUDITED_STABLE_HASH_FOR_414186"
 
   # Toolchains
-  CLANG_REPO: [android.googlesource.com](https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86)
+  CLANG_REPO: "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86"
   CLANG_REF: master
   CLANG_DIRNAME: clang-r487747
 
-  GCC64_REPO: [android.googlesource.com](https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9)
+  GCC64_REPO: "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9"
   GCC64_REF: master
 
-  GCC32_REPO: [android.googlesource.com](https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9)
+  GCC32_REPO: "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9"
   GCC32_REF: master
 
   # KernelSU Next
-  KSU_REPO: [github.com](https://github.com/KernelSU-Next/KernelSU-Next.git)
+  KSU_REPO: "https://github.com/KernelSU-Next/KernelSU-Next.git"
   KSU_BRANCH: dev
   KSU_COMMIT: "REPLACE_WITH_AUDITED_KSU_NEXT_COMMIT"
 
   # SUSFS
   # Ganti URL/branch/commit ini ke repo SUSFS 4.14 yang sudah benar-benar Anda audit.
-  SUSFS_REPO: [github.com](https://github.com/Vagelis1608/KernelSU-Next-SuSFS.git)
+  SUSFS_REPO: "https://github.com/Vagelis1608/KernelSU-Next-SuSFS.git"
   SUSFS_BRANCH: dev-susfs
   SUSFS_COMMIT: "REPLACE_WITH_AUDITED_SUSFS_414_COMMIT"
 
   # AnyKernel3
-  ANYKERNEL_REPO: [github.com](https://github.com/osm0sis/AnyKernel3.git)
+  ANYKERNEL_REPO: "https://github.com/osm0sis/AnyKernel3.git"
   ANYKERNEL_BRANCH: master
   ANYKERNEL_COMMIT: "REPLACE_WITH_AUDITED_ANYKERNEL3_COMMIT"
 
@@ -596,7 +596,7 @@ jobs:
 
           for f in \
             "$OUT_DIR/arch/arm64/boot/dtbo.img" \
-            "$OUT_DIR/arch/arm64/boot/dtbo.img"
+            "$OUT_DIR/arch/arm64/boot/dtb.img"
           do
             if [ -f "$f" ]; then
               DTBO="$f"
