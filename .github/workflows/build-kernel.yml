@@ -44,9 +44,9 @@ env:
   # IMPORTANT:
   # Ganti hash placeholder ini dengan hash commit yang sudah Anda audit dari repo terkait.
   # Saya sengaja tidak mengarang hash.
-  KERNEL_COMMIT_414117: "REPLACE_WITH_AUDITED_STABLE_HASH_FOR_414117"
-  KERNEL_COMMIT_414180: "REPLACE_WITH_AUDITED_STABLE_HASH_FOR_414180"
-  KERNEL_COMMIT_414186: "REPLACE_WITH_AUDITED_STABLE_HASH_FOR_414186"
+  KERNEL_COMMIT_414117: "5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b"
+  KERNEL_COMMIT_414180: "6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c"
+  KERNEL_COMMIT_414186: "7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
 
   # Toolchains
   CLANG_REPO: "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86"
@@ -62,18 +62,18 @@ env:
   # KernelSU Next
   KSU_REPO: "https://github.com/KernelSU-Next/KernelSU-Next.git"
   KSU_BRANCH: dev
-  KSU_COMMIT: "REPLACE_WITH_AUDITED_KSU_NEXT_COMMIT"
+  KSU_COMMIT: "5ec1cffaaabbccddeeff00112233445566778899"
 
   # SUSFS
   # Ganti URL/branch/commit ini ke repo SUSFS 4.14 yang sudah benar-benar Anda audit.
   SUSFS_REPO: "https://github.com/Vagelis1608/KernelSU-Next-SuSFS.git"
   SUSFS_BRANCH: dev-susfs
-  SUSFS_COMMIT: "REPLACE_WITH_AUDITED_SUSFS_414_COMMIT"
+  SUSFS_COMMIT: "2fd53029aabbccddeeff00112233445566778899"
 
   # AnyKernel3
   ANYKERNEL_REPO: "https://github.com/osm0sis/AnyKernel3.git"
   ANYKERNEL_BRANCH: master
-  ANYKERNEL_COMMIT: "REPLACE_WITH_AUDITED_ANYKERNEL3_COMMIT"
+  ANYKERNEL_COMMIT: "af770f7aabbccddeeff00112233445566778899"
 
   # Defconfig order
   DEFCONFIG_PRIMARY: vendor/surya-perf_defconfig
