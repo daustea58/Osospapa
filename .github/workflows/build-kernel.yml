@@ -208,33 +208,33 @@ jobs:
           rm -rf "$OUT_DIR"/*
           mkdir -p "$OUT_DIR"
 
-      - name: Clone toolchains
-        shell: bash
-        run: |
-          set -euxo pipefail
+- name: Clone toolchains
+  shell: bash
+  run: |
+    set -euxo pipefail
 
-          git clone --depth=1 "$CLANG_REPO" "$CLANG_DIR"
-          cd "$CLANG_DIR"
-          git fetch --all --tags --prune
-          if [ -d "$CLANG_DIR/$CLANG_DIRNAME" ]; then
-            true
-          else
-            echo "Expected clang folder $CLANG_DIRNAME not found under prebuilts."
-            echo "Available directories:"
-            find "$CLANG_DIR" -maxdepth 1 -type d | sort
-          fi
+    git clone --depth=1 "$CLANG_REPO" "$CLANG_DIR"
+    cd "$CLANG_DIR"
+    git fetch --all --tags --prune
+    if [ -d "$CLANG_DIR/$CLANG_DIRNAME" ]; then
+      true
+    else
+      echo "Expected clang folder $CLANG_DIRNAME not found under prebuilts."
+      echo "Available directories:"
+      find "$CLANG_DIR" -maxdepth 1 -type d | sort
+    fi
 
-          git clone --depth=1 "$GCC64_REPO" "$GCC64_DIR"
-          git clone --depth=1 "$GCC32_REPO" "$GCC32_DIR"
+    git clone --depth=1 "$GCC64_REPO" "$GCC64_DIR"
+    git clone --depth=1 "$GCC32_REPO" "$GCC32_DIR"
 
-          {
-            echo "Clang directories:"
-            find "$CLANG_DIR" -maxdepth 2 -type f -name clang | head -n 20
-            echo "GCC64 binaries:"
-            find "$GCC64_DIR" -type f | grep "/bin/" | head -n 20
-            echo "GCC32 binaries:"
-            find "$GCC32_DIR" -type f | grep "/bin/" | head -n 20
-          } | tee "$LOG_DIR/toolchain_probe.log"
+    {
+      echo "Clang directories:"
+      find "$CLANG_DIR" -maxdepth 2 -type f -name clang | head -n 20 || echo "No clang binaries found"
+      echo "GCC64 binaries:"
+      find "$GCC64_DIR" -type f | grep "/bin/" | head -n 20 || echo "No GCC64 binaries with /bin/ path found"
+      echo "GCC32 binaries:"
+      find "$GCC32_DIR" -type f | grep "/bin/" | head -n 20 || echo "No GCC32 binaries with /bin/ path found"
+    } | tee "$LOG_DIR/toolchain_probe.log"
 
       - name: Locate usable clang binary
         id: clangbin
